@@ -3,6 +3,22 @@
 This repository contains a Dagster project integrated with Snowflake and dbt for data orchestration and transformation.
 
 ---
+## Platform access
+```
+Username: MONOTREMES
+Account Login URL: https://fsyjvmv-pzb47408.snowflakecomputing.com
+Organization name FSYJVMV
+Account name PZB47408
+Role ACCOUNTADMIN
+Account locator
+HXB50797
+Cloud platform
+AWS
+Edition
+Enterprise
+
+```
+
 
 ## Prerequisites
 

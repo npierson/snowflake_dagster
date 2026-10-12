@@ -19,12 +19,21 @@ dbt_resource = DbtCliResource(
     dbt_executable=dbt_executable,
 )
 
-snowflake_resource = SnowflakeResource(
-    account=EnvVar("SNOWFLAKE_ACCOUNT"),
-    user=EnvVar("SNOWFLAKE_USER"),
-    password=EnvVar("SNOWFLAKE_PASSWORD"),
-    role=EnvVar("SNOWFLAKE_ROLE"),
-    database=EnvVar("SNOWFLAKE_DATABASE"),
-    warehouse=EnvVar("SNOWFLAKE_WAREHOUSE"),
-    schema=os.getenv("SNOWFLAKE_SCHEMA", "PUBLIC"),
-)
+snowflake_config = {
+    "account": EnvVar("SNOWFLAKE_ACCOUNT"),
+    "user": EnvVar("SNOWFLAKE_USER"),
+    "role": EnvVar("SNOWFLAKE_ROLE"),
+    "database": EnvVar("SNOWFLAKE_DATABASE"),
+    "warehouse": EnvVar("SNOWFLAKE_WAREHOUSE"),
+    "schema_": os.getenv("SNOWFLAKE_SCHEMA", "CORE"),
+}
+
+# Support both Key-Pair and Password authentication
+if os.getenv("SNOWFLAKE_PRIVATE_KEY_PATH"):
+    snowflake_config["private_key_path"] = os.getenv("SNOWFLAKE_PRIVATE_KEY_PATH")
+    if os.getenv("SNOWFLAKE_PRIVATE_KEY_PASSPHRASE"):
+        snowflake_config["private_key_password"] = os.getenv("SNOWFLAKE_PRIVATE_KEY_PASSPHRASE")
+else:
+    snowflake_config["password"] = os.getenv("SNOWFLAKE_PASSWORD", "")
+
+snowflake_resource = SnowflakeResource(**snowflake_config)

@@ -1,5 +1,8 @@
 # Environment variables and secrets
 .env
+*.p8
+*.pem
+*.key
 
 # Virtual environments
 .venv/
@@ -29,5 +32,8 @@ dbt_packages/
 target/
 logs/
 .user.yml
+
+
+*.concurrent-update-lock
 
 
