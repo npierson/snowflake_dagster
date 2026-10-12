@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: raw_data
+    database: "{{ env_var('SNOWFLAKE_DATABASE') }}"
+    schema: "{{ env_var('SNOWFLAKE_SCHEMA', 'PUBLIC') }}"
+    tables:
+      - name: raw_s3_parquet_ingest
+        identifier: RAW_EVENTS
+        description: "Raw landing table loaded by Dagster from S3 Parquet stage"
+

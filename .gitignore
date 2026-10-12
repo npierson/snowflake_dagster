@@ -1,0 +1,33 @@
+# Environment variables and secrets
+.env
+
+# Virtual environments
+.venv/
+.snowflake-vexit/
+
+# Installation logs
+*.log
+.pip-install.log
+
+# Build artifacts & package metadata
+*.egg-info/
+dist/
+build/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Dagster temporary directories & local runs
+.tmp_dagster_home_*
+
+# System files
+.DS_Store
+
+# dbt build artifacts & installed packages
+dbt_packages/
+target/
+logs/
+.user.yml
+
+

@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "snowflake_dagster"
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = [
+    "dagster",
+    "dagster-webserver",
+    "dagster-dbt",
+    "dbt-snowflake",
+    "snowflake-connector-python",
+    "python-dotenv",
+    "dagster-snowflake"
+]
+
+[tool.setuptools.packages.find]
+where = ["."]          # use ["src"] if your code lives under src/
+include = ["snowflake_dagster*"]
+
+[tool.dagster]
+module_name = "snowflake_dagster.definitions"   # wherever your Definitions object lives
+
+
