@@ -3,9 +3,32 @@ version: 2
 sources:
   - name: raw_data
     database: "{{ env_var('SNOWFLAKE_DATABASE') }}"
-    schema: "{{ env_var('SNOWFLAKE_SCHEMA', 'PUBLIC') }}"
+    schema: "{{ env_var('SNOWFLAKE_SCHEMA', 'CORE') }}"
     tables:
       - name: raw_s3_parquet_ingest
-        identifier: RAW_EVENTS
+        identifier: "{{ env_var('SNOWFLAKE_RAW_TABLE', 'RAW_EVENTS') }}"
         description: "Raw landing table loaded by Dagster from S3 Parquet stage"
-
+      - name: raw_customer
+        identifier: RAW_CUSTOMER
+        description: "Raw customer landing table loaded by Dagster from S3 Parquet stage"
+      - name: raw_lineitem
+        identifier: RAW_LINEITEM
+        description: "Raw lineitem landing table loaded by Dagster from S3 Parquet stage"
+      - name: raw_nation
+        identifier: RAW_NATION
+        description: "Raw nation landing table loaded by Dagster from S3 Parquet stage"
+      - name: raw_orders
+        identifier: RAW_ORDERS
+        description: "Raw orders landing table loaded by Dagster from S3 Parquet stage"
+      - name: raw_part
+        identifier: RAW_PART
+        description: "Raw part landing table loaded by Dagster from S3 Parquet stage"
+      - name: raw_partsupp
+        identifier: RAW_PARTSUPP
+        description: "Raw partsupp landing table loaded by Dagster from S3 Parquet stage"
+      - name: raw_region
+        identifier: RAW_REGION
+        description: "Raw region landing table loaded by Dagster from S3 Parquet stage"
+      - name: raw_supplier
+        identifier: RAW_SUPPLIER
+        description: "Raw supplier landing table loaded by Dagster from S3 Parquet stage"

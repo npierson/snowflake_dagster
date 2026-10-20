@@ -1,0 +1,4 @@
+echo hello > test.txt
+aws s3 cp test.txt s3://nat-data-source-351578878554-us-east-1-an/ --profile s3-writer
+aws s3 ls s3://nat-data-source-351578878554-us-east-1-an/ --profile s3-writer
+aws s3 ls --profile s3-writer   # should fail: AccessDenied on other buckets

@@ -25,7 +25,7 @@ snowflake_config = {
     "role": EnvVar("SNOWFLAKE_ROLE"),
     "database": EnvVar("SNOWFLAKE_DATABASE"),
     "warehouse": EnvVar("SNOWFLAKE_WAREHOUSE"),
-    "schema_": os.getenv("SNOWFLAKE_SCHEMA", "CORE"),
+    "schema": os.getenv("SNOWFLAKE_SCHEMA", "CORE"),
 }
 
 # Support both Key-Pair and Password authentication

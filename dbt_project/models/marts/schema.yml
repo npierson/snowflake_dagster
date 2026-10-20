@@ -32,3 +32,86 @@ models:
         tests:
           - not_null
 
+  - name: dim_customers
+    description: "Conformed customer dimension with geographic nation/region attributes and surrogate key"
+    columns:
+      - name: customer_sk
+        description: "Surrogate primary key for customer dimension"
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        description: "Natural key for customer"
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_parts
+    description: "Conformed part dimension with surrogate key"
+    columns:
+      - name: part_sk
+        description: "Surrogate primary key for part dimension"
+        tests:
+          - unique
+          - not_null
+      - name: part_id
+        description: "Natural key for part"
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_suppliers
+    description: "Conformed supplier dimension with geographic nation/region attributes and surrogate key"
+    columns:
+      - name: supplier_sk
+        description: "Surrogate primary key for supplier dimension"
+        tests:
+          - unique
+          - not_null
+      - name: supplier_id
+        description: "Natural key for supplier"
+        tests:
+          - unique
+          - not_null
+
+  - name: fct_orders
+    description: "Kimball star schema order fact table at order grain with aggregated item metrics"
+    columns:
+      - name: order_sk
+        description: "Surrogate primary key for orders"
+        tests:
+          - unique
+          - not_null
+      - name: order_id
+        description: "Natural key for order"
+        tests:
+          - unique
+          - not_null
+      - name: customer_sk
+        description: "Foreign key referencing dim_customers"
+        tests:
+          - not_null
+
+  - name: fct_order_items
+    description: "Kimball star schema line-item fact table at order-item grain with surrogate foreign keys to conformed dimensions"
+    columns:
+      - name: order_item_sk
+        description: "Surrogate primary key for line items"
+        tests:
+          - unique
+          - not_null
+      - name: order_id
+        tests:
+          - not_null
+      - name: customer_sk
+        description: "Foreign key referencing dim_customers"
+        tests:
+          - not_null
+      - name: part_sk
+        description: "Foreign key referencing dim_parts"
+        tests:
+          - not_null
+      - name: supplier_sk
+        description: "Foreign key referencing dim_suppliers"
+        tests:
+          - not_null

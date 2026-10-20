@@ -1,0 +1,10 @@
+property,property_type,property_value,property_default
+ENABLED,Boolean,TRUE,TRUE
+STORAGE_PROVIDER,String,S3,
+STORAGE_ALLOWED_LOCATIONS,List,s3://nat-data-source-351578878554-us-east-1-an/,[]
+STORAGE_BLOCKED_LOCATIONS,List,,[]
+STORAGE_AWS_IAM_USER_ARN,String,arn:aws:iam::867345910763:user/b01j1000-s,
+STORAGE_AWS_ROLE_ARN,String,arn:aws:iam::351578878554:role/snowflake-s3-role,
+STORAGE_AWS_EXTERNAL_ID,String,HXB50797_SFCRole=5_RtSeKxMOLWriwl7F7fUen7e84sM=,
+USE_PRIVATELINK_ENDPOINT,Boolean,FALSE,FALSE
+COMMENT,String,,
