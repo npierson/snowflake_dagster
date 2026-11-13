@@ -8,6 +8,6 @@ aws s3 cp *.parquet s3://nat-data-source-351578878554-us-east-1-an/ --profile s3
 # get directory listing from s3
 aws s3 ls s3://nat-data-source-351578878554-us-east-1-an/ --profile s3-writer
 
+# please note that the parquet files are in the /Projects/duckdb folder
 
-
-
+# the parquet files are part of tpch https://www.tpc.org/tpch/
