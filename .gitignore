@@ -5,6 +5,9 @@
 *.key
 s3-writer_accessKeys.csv
 
+#Ultraedit project files
+ultraedit.*
+
 # Virtual environments
 .venv/
 .snowflake-vexit/
