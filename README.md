@@ -127,6 +127,13 @@ Once running, access the Dagster UI in your web browser:
 
 👉 **[http://localhost:3000](http://localhost:3000)**
 
+
+## Test Source Data in s3 - Parquet TPCH
+
+See the parquet files in the /Projects/duckdb folder
+The DuckDB in there has the TPCH plug in to generate test data.  It can put it in duckdb and also the parquet files.   Scripts are in that project top generate it all, then you upload the parquet files to s3
+
+See the aws_command_line.txt file for moving data to s3
 ---
 
 ## Troubleshooting
